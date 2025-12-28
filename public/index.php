@@ -1,5 +1,12 @@
 <?php
 
+//echo "1";
+/*var_dump(file_put_contents('/media/alex/Speed/htdocs/vidoc/public/test.php', '<?php die("Maintenance mode"); ?>'));*/
+/*var_dump(file_put_contents('/media/alex/Speed/htdocs/vidoc/test.php', '<?php die("Maintenance mode"); ?>'));*/
+/*var_dump(file_put_contents('/media/alex/Speed/htdocs/vidoc/storage/test.php', '<?php die("Maintenance mode"); ?>'));*/
+/*var_dump(file_put_contents('/media/alex/Speed/htdocs/vidoc/storage/logs/test.php', '<?php die("Maintenance mode"); ?>'));*/
+//die();
+
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 

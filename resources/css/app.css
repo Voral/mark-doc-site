@@ -1,11 +1,205 @@
-@import 'tailwindcss';
-
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+:root {
+    --color-bg-page: #fff;
+    --color-primary: #333;
+    --color-secondary: #003366;
+    --color-secondary-hover: #336699;
+
+    --gap-smaller: 0.8rem;
+    --gap-small: 1.6rem;
+    --gap-medium: 2.4rem;
+    --gap-large: 3.2rem;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: Arial, 'Open Sans', sans-serif;
+}
+
+body, html {
+    background: var(--color-bg-page);
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, figure, blockquote, dl, dd {
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.0rem;
+    line-height: 3.4rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+    line-height: 2.3rem;
+}
+
+h3 {
+    font-size: 2.2rem;
+    line-height: 2.2rem;
+}
+
+h4 {
+    font-size: 2rem;
+    line-height: 2.0rem;
+    font-weight: normal;
+}
+
+h5 {
+    font-size: 1.8rem;
+    line-height: 2.0rem;
+    font-weight: normal;
+}
+
+h6 {
+    font-size: 1.6rem;
+    line-height: 2.0rem;
+    font-weight: normal;
+    font-style: italic;
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-secondary-hover);
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeSpeed;
+    color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small);
+    align-items: center;
+}
+
+img, picture, video, canvas, svg {
+    max-width: 100%;
+    display: block;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid #2962ff;
+    outline-offset: 2px;
+}
+
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+textarea:not([rows]) {
+    min-height: 10em;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    max-width: 1366px;
+    gap: var(--gap-medium);
+    width: 95%;
+}
+
+.side {
+    max-width: 400px;
+    width: 20%;
+    min-width: 300px;
+}
+
+.side .m-doc-menu {
+    list-style: none;
+    margin: 0 0 0 var(--gap-small);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-smaller);
+}
+
+.side .m-doc-menu .m-doc-menu {
+    display: none;
+}
+
+.side .m-doc-menu__item:has(.m-doc-menu__item) > .m-doc-menu__link:after {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: rotate(45deg);
+}
+
+.side .m-doc-menu_active > .m-doc-menu,
+.side .m-doc-menu:has(.m-doc-menu_active) {
+    display: block;
+}
+
+.side .m-doc-menu__link {
+    display: flex;
+    min-height: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content {
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-small);
+}
+@media (max-width: 1070px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .side {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media print {
+    .side {
+        display: none;
+    }
+
+    .container {
+        max-width: none;
+        gap: var(--gap-medium);
+        width: calc(100% - 1cm);
+        margin-left: 1cm;
+    }
+
+    body {
+        font-size: 16pt;
+    }
 }
